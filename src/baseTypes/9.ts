@@ -1,14 +1,12 @@
-type PageDetails = {
-  createdAt: Date;
-  updatedAt: Date;
-};
-
 type Page = {
   title: string;
   likes: number;
   accounts: string[];
-  status: string;
-  details?: PageDetails;
+  status: 'open' | 'close';
+  details?: { 
+    createAt: Date;
+    updateAt?: Date; 
+  };
 };
 
 const page1: Page = {
@@ -17,8 +15,8 @@ const page1: Page = {
   accounts: ['Max', 'Anton', 'Nikita'],
   status: 'open',
   details: {
-    createdAt: new Date('2021-01-01'),
-    updatedAt: new Date('2021-05-01'),
+    createAt: new Date('2021-01-01'),
+    updateAt: new Date('2021-05-01'),
   }
 };
 
@@ -28,5 +26,6 @@ const page2: Page = {
   accounts: ['Alex'],
   status: 'close',
 };
+
 
 export {};
